@@ -1,0 +1,152 @@
+
+
+
+/* Start:/bitrix/templates/content/components/bitrix/menu/top_menu/style.css*/
+/* Left menu*/
+ul.left-menu
+{
+	list-style:none;
+	margin:0; padding:0;
+	margin-bottom:8px;
+	position: relative; /*IE bug*/
+}
+
+ul.left-menu li
+{
+	padding: 10px 16px;
+	background:#F5F5F5 url('../../../../../templates/content/components/bitrix/menu/top_menu/images/left_menu_bg.gif') top repeat-x;
+}
+
+ul.left-menu li a
+{
+	font-size:100%;
+	color:#BC262C;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+ul.left-menu li a:visited
+{
+	color:#BC262C;
+}
+
+ul.left-menu li a:hover
+{
+	color:#BC262C;
+}
+
+
+ul.left-menu li a.selected:link, 
+ul.left-menu li a.selected:visited, 
+ul.left-menu li a.selected:active, 
+ul.left-menu li a.selected:hover
+{
+	color:#FC8D3D;
+}
+
+
+
+/* End */
+
+
+
+/* Start:/bitrix/templates/content/styles.css*/
+#bx_incl_area_9 > ul {
+    color: #666666;
+    list-style: disc outside none;
+    padding-left: 13px;
+}
+
+#bx_incl_area_8 > ul {
+    color: #666666;
+    list-style: disc outside none;
+    padding-left: 13px;
+}
+
+#content > ul {
+    color: #666666;
+    list-style: disc outside none;
+    padding-left: 13px;
+}
+
+#bx_incl_area_9 > ol {
+    color: #666666;
+    padding-left: 19px;
+}
+
+#bx_incl_area_8 > ol {
+    color: #666666;
+    padding-left: 19px;
+}
+
+#content > ol {
+    color: #666666;
+    padding-left: 19px;
+}
+
+ol {
+    color: #666666;
+    padding-left: 17px !important;
+}
+
+#content > img {
+    padding:2px!important;
+}
+
+.btable td {
+    border: 1px solid #666666!important;
+    color: #666666;
+    padding: 5px!important;
+}
+
+div.form_application div.part-right
+{
+padding-top:16px;
+{
+
+
+.otz {
+    padding-left: 135px;
+    right: auto;
+}
+
+h2
+{
+color: #1983CD;
+font-size: 23px;
+margin: 0 0 16px;
+line-height: 1;
+}
+h1
+{
+color: #1983CD;
+font-size: 28px;
+}
+.lupa
+{
+cursor: url("../../../../../../../www.iconsearch.ru/uploads/icons/fatcow/16x16/magnifier_zoom_in.png"), text;
+} 
+
+/* End */
+
+
+
+/* Start:/bitrix/templates/content/template_styles.css*/
+h1 {
+    color: #11983CD;
+    font-size: 28px;
+}
+
+.h2_before_banner{
+    color:1#000000;
+    margin-bottom: 15px;
+}
+
+.a_before_banner{
+    font-weight: bold;
+    font-size: 15px;
+}
+.div_before_banner{
+    margin-bottom: 115px;
+}
+/* End */
