@@ -27,13 +27,23 @@ body > .container {
 }
 .container .text-muted {
   margin: 20px 0;
+  
 }
 
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
+  
+}
+
+.inlblock {
+  display: inline-block;
 }
 
 code {
   font-size: 80%;
+}
+
+body > div {
+	display: inline-block;
 }
