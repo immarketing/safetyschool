@@ -1,0 +1,9 @@
+{
+  "name": "test.project",
+  "version": "1.0.0",
+  "description": "First test Project",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "less": "^2.5.3"
+  }
+}
