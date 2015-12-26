@@ -1,15 +1,18 @@
 {
-  "name": "agfirstsite",
+  "name": "test.nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "No",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git.repo"
+  },
   "author": "AlGo",
   "license": "ISC",
-  "devDependencies": {
-    "gulp": "^3.9.0",
+  "dependencies": {
     "less": "^2.5.3"
   }
 }
