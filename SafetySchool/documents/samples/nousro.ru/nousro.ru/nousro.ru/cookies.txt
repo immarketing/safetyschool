@@ -1,6 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-nousro.ru	TRUE	/	FALSE	1999999999	PHPSESSID	928fc16143b780e5c06d4fb347b0f00c
-nousro.ru	TRUE	/	FALSE	1999999999	BITRIX_SM_GUEST_ID	148859
-nousro.ru	TRUE	/	FALSE	1999999999	BITRIX_SM_LAST_VISIT	21.12.2015+12%3A37%3A59
-
