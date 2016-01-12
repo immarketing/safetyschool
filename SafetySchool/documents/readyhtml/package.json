@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "test.nodejs",
   "version": "1.0.0",
   "description": "No",
@@ -25,13 +24,5 @@
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
     "jit-grunt": "^0.9.1"
-=======
-  "name": "test.project",
-  "version": "1.0.0",
-  "description": "First test Project",
-  "devDependencies": {
-    "gulp": "^3.9.0",
-    "less": "^2.5.3"
->>>>>>> branch 'master' of https://github.com/immarketing/safetyschool.git
   }
 }
