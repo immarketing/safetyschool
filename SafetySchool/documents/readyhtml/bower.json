@@ -1,0 +1,27 @@
+{
+  "name": "test.nodejs",
+  "description": "No",
+  "main": "index.js",
+  "authors": [
+    "AlGo"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/immarketing/safetyschool",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true,
+  "dependencies": {
+    "social-likes": "~3.1.0",
+    "iCheck": "jquery-icheck#~1.0.2",
+    "fotorama": "~4.6.4",
+    "jquery": "~2.2.0"
+  }
+}
