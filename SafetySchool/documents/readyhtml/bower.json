@@ -19,10 +19,8 @@
   ],
   "private": true,
   "dependencies": {
-    "social-likes": "~3.1.0",
-    "iCheck": "jquery-icheck#~1.0.2",
-    "fotorama": "~4.6.4",
     "jquery": "~2.2.0",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "bootstrap-treeview": "~1.2.0"
   }
 }
