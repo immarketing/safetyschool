@@ -21,6 +21,9 @@
 <!-- Custom styles for this template -->
 <link href="footer-navbar.css" rel="stylesheet">
 
+<!-- Bootstrap treeview core CSS -->
+<link href="../css/bootstrap-treeview.min.css" rel="stylesheet">
+
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Open+Sans+Condensed:300,700&subset=latin,cyrillic'
 	rel='stylesheet' type='text/css'>
@@ -62,7 +65,18 @@
 			<!--/.nav-collapse -->
 		</div>
 	</nav>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-md-3'>
+				<div id="tree">The tree</div>
+			</div>
+			<div class='col-md-6'>
+			<div id='itemIdHolder'>Пустое место</div>
+			</div>
+			<div class='col-md-3'></div>
+		</div>
 
+	</div>
 	<footer class="footer">
 		<div class="container">
 			<div class="text-muted inlblock btn btn-primary">Place sticky
@@ -75,9 +89,15 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>')</script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="../js/jquery.min.js"><\/script>')
+	</script>
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-treeview.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="test.nodejs.js"></script>
 </body>
 </html>
