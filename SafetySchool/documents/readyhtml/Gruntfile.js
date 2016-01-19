@@ -7,7 +7,10 @@ module.exports = function(grunt) {
 		fonts : 'fonts', /* папка для шрифтов */
 		scripts : 'js', /* папка для готовых скриптов js */
 		src : 'src', /* папка с исходными кодами js, less , etc. */
-		bower_path : 'bower_components' /* папка где хранятся библиотеки jquery, bootstrap, SyntaxHighlighter, etc. */
+		bower_path : 'bower_components' /*
+										 * папка где хранятся библиотеки jquery,
+										 * bootstrap, SyntaxHighlighter, etc.
+										 */
 	};
 
 	// Project configuration.
@@ -15,6 +18,11 @@ module.exports = function(grunt) {
 			.initConfig({
 				globalConfig : globalConfig,
 				pkg : grunt.file.readJSON('package.json'),
+				clean : {
+					js : [ '<%= globalConfig.scripts %>/*' ],
+					css : [ '<%= globalConfig.styles %>/*'],
+					fonts: [ '<%= globalConfig.fonts %>/*']
+				},
 				copy : {
 					main : {
 						files : [
@@ -24,13 +32,13 @@ module.exports = function(grunt) {
 									src : '<%= globalConfig.bower_path %>/jquery/dist/jquery.min.js',
 									dest : '<%= globalConfig.scripts %>/',
 									filter : 'isFile'
-								}, /*{
-											          expand : true,
-											          flatten : true,
-											          src : '<%= globalConfig.bower_path %>/html5shiv/dist/html5shiv.min.js',
-											          dest : '<%= globalConfig.scripts %>/',
-											          filter : 'isFile'
-											        },*/
+								}, /*
+									 * { expand : true, flatten : true, src : '<%=
+									 * globalConfig.bower_path
+									 * %>/html5shiv/dist/html5shiv.min.js', dest : '<%=
+									 * globalConfig.scripts %>/', filter :
+									 * 'isFile' },
+									 */
 								{
 									expand : true,
 									flatten : true,
@@ -79,13 +87,13 @@ module.exports = function(grunt) {
 									src : '<%= globalConfig.bower_path %>/font-awesome/fonts/*',
 									dest : '<%= globalConfig.fonts %>/',
 									filter : 'isFile'
-								} /*, {
-										          expand : true,
-										          flatten : true,
-										          src : '<%= globalConfig.bower_path %>/respond/dest/respond.min.js',
-										          dest : '<%= globalConfig.scripts %>/',
-										          filter : 'isFile'
-										        }*/
+								} /*
+									 * , { expand : true, flatten : true, src : '<%=
+									 * globalConfig.bower_path
+									 * %>/respond/dest/respond.min.js', dest : '<%=
+									 * globalConfig.scripts %>/', filter :
+									 * 'isFile' }
+									 */
 						]
 					}
 				},
@@ -98,19 +106,18 @@ module.exports = function(grunt) {
 							expand : true,
 							cwd : 'bower_components/**/dist/',
 							src : [ '**' ],
-							dest : 'build/' /*, filter: 'isFile'*/
+							dest : 'build/' /* , filter: 'isFile' */
 						}
 						/*
-						,
-
-						// includes files within path and its sub-directories
-						{expand: true, src: ['path/**'], dest: 'dest/'},
-
-						// makes all src relative to cwd
-						{expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
-
-						// flattens results to a single level
-						{expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
+						 * ,
+						 *  // includes files within path and its
+						 * sub-directories {expand: true, src: ['path/**'],
+						 * dest: 'dest/'},
+						 *  // makes all src relative to cwd {expand: true, cwd:
+						 * 'path/', src: ['**'], dest: 'dest/'},
+						 *  // flattens results to a single level {expand: true,
+						 * flatten: true, src: ['path/**'], dest: 'dest/',
+						 * filter: 'isFile'},
 						 */
 						],
 					},
@@ -121,14 +128,14 @@ module.exports = function(grunt) {
 						dest : 'build/components.js',
 						cssDest : 'build/components.css',
 						exclude : [
-						//'jquery',
-						//'modernizr'
+						// 'jquery',
+						// 'modernizr'
 						],
-						//dependencies: {
-						//'underscore': 'jquery',
-						//'backbone': 'underscore',
-						//'jquery-mousewheel': 'jquery'
-						//},
+						// dependencies: {
+						// 'underscore': 'jquery',
+						// 'backbone': 'underscore',
+						// 'jquery-mousewheel': 'jquery'
+						// },
 						bowerOptions : {
 							relative : false
 						}
@@ -151,7 +158,9 @@ module.exports = function(grunt) {
 							optimization : 2
 						},
 						files : {
-							"build/algo.css" : "less/algo.less" // destination file and source file
+							"build/algo.css" : "less/algo.less" // destination
+																// file and
+																// source file
 						}
 					}
 				},
@@ -170,11 +179,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-bower-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	// Default task(s).
-	//grunt.registerTask('default', [ 'uglify','less', 'watch'  ]);
-	//grunt.registerTask('default', [ 'uglify','less', 'bower_concat'  ]);
-	grunt.registerTask('default', [ 'uglify', 'less', 'copy' ]);
+	// grunt.registerTask('default', [ 'uglify','less', 'watch' ]);
+	// grunt.registerTask('default', [ 'uglify','less', 'bower_concat' ]);
+	grunt.registerTask('default', [ 'clean', 'uglify', 'less', 'copy' ]);
 
 	// 11
 
