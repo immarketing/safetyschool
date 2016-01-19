@@ -4,7 +4,9 @@
 /css/
 /fonts/
 /js/
-/node_modules/
-/sfw/
-/swf/
+/node_modules/**/*
+/sfw/**/*
+/swf/**/*
+/skin/**/*
 /skin/
+/swf/
