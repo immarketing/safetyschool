@@ -6,59 +6,28 @@ function d() {
 function getTree() {
 	// Some logic to retrieve, or generate tree structure
 	var tree = [ {
-		text : "Parent 1",
+		text : "Курс №1 <b>пожарной подготовки к самым сложным ситуациям в природе</b>",
 		nodes : [ {
-			text : "Child 1",
+			text : "Раздел 1",
 			nodes : [ {
-				text : "Grandchild 1"
+				text : "Тема 1"
 			}, {
-				text : "Grandchild 2"
+				text : "Тема 2"
 			} ]
 		}, {
-			text : "Child 2"
+			text : "Раздел 2"
 		} ]
 	}, {
-		text : "Parent 2"
+		text : "Еще один замечательный курс"
 	}, {
-		text : "Parent 3"
+		text : "Курс №2 пожарной подготовки к самым сложным ситуациям в природе"
 	}, {
-		text : "Parent 4"
+		text : "Курс №3 пожарной подготовки к самым сложным ситуациям в природе"
 	}, {
-		text : "Parent 5"
-	}, {
-		text : "Parent 2"
-	}, {
-		text : "Parent 3"
-	}, {
-		text : "Parent 4"
-	}, {
-		text : "Parent 5"
-	}, {
-		text : "Parent 2"
-	}, {
-		text : "Parent 3"
-	}, {
-		text : "Parent 4"
-	}, {
-		text : "Parent 5"
-	}, {
-		text : "Parent 2"
-	}, {
-		text : "Parent 3"
-	}, {
-		text : "Parent 4"
-	}, {
-		text : "Parent 5"
-	}, {
-		text : "Parent 2"
-	}, {
-		text : "Parent 3"
-	}, {
-		text : "Parent 4"
-	}, {
-		text : "Parent 5"
+		text : "Курс №4 пожарной подготовки к самым сложным ситуациям в природе"
 	} ];
 	return tree;
+	
 }
 
 $('#tree').treeview({

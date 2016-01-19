@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 		styles : 'css', /* папка для готовый файлов css стилей */
 		fonts : 'fonts', /* папка для шрифтов */
 		scripts : 'js', /* папка для готовых скриптов js */
+		swfs : 'js', /* папка для готовых скриптов js */
 		src : 'src', /* папка с исходными кодами js, less , etc. */
 		bower_path : 'bower_components' /*
 										 * папка где хранятся библиотеки jquery,
@@ -19,6 +20,8 @@ module.exports = function(grunt) {
 				globalConfig : globalConfig,
 				pkg : grunt.file.readJSON('package.json'),
 				clean : {
+					skin : [ 'skin/**' ],
+					swfs : [ '<%= globalConfig.swfs %>/*' ],
 					js : [ '<%= globalConfig.scripts %>/*' ],
 					css : [ '<%= globalConfig.styles %>/*'],
 					fonts: [ '<%= globalConfig.fonts %>/*']
@@ -27,6 +30,31 @@ module.exports = function(grunt) {
 					main : {
 						files : [
 								{
+									expand : true,
+									flatten : true,
+									src : '<%= globalConfig.bower_path %>/jPlayer/dist/add-on/*.min.js',
+									dest : '<%= globalConfig.scripts %>/',
+									filter : 'isFile'
+								},{
+									expand : true,
+									flatten : true,
+									src : '<%= globalConfig.bower_path %>/jPlayer/dist/jplayer/*.min.js',
+									dest : '<%= globalConfig.scripts %>/',
+									filter : 'isFile'
+								},{
+									expand : true,
+									flatten : false,
+									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
+									src : '**',
+									dest : 'skin/'/*,
+									filter : 'isFile'*/
+								},{
+									expand : true,
+									flatten : true,
+									src : '<%= globalConfig.bower_path %>/jPlayer/dist/jplayer/*.swf',
+									dest : '<%= globalConfig.swfs %>/',
+									filter : 'isFile'
+								},{
 									expand : true,
 									flatten : true,
 									src : '<%= globalConfig.bower_path %>/jquery/dist/jquery.min.js',
@@ -158,7 +186,7 @@ module.exports = function(grunt) {
 							optimization : 2
 						},
 						files : {
-							"build/algo.css" : "less/algo.less" // destination
+							"css/algo.css" : "less/algo.less" // destination
 																// file and
 																// source file
 						}
