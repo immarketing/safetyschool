@@ -11,18 +11,24 @@
 
 <title>Демонстрационная страница обучения пожарного минимуму</title>
 
-<!-- Bootstrap core CSS -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<script>
+	var minified = ''; // min.
+	document.write('<link href="../css/bootstrap.'+minified+'css" rel="stylesheet">');
+	document.write('<link href="../css/bootstrap-treeview.'+minified+'css" rel="stylesheet">');
+</script>
+
+
+<!-- Bootstrap core CSS 
+<link href="../css/bootstrap.min.css" rel="stylesheet">-->
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<link href="assets/css/ie10-viewport-bug-workaround.css"
-	rel="stylesheet">
+<link href="assets/css/ie10-viewport-bug-workaround.css"	rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="footer-navbar.css" rel="stylesheet">
 
-<!-- Bootstrap treeview core CSS -->
-<link href="../css/bootstrap-treeview.min.css" rel="stylesheet">
+<!-- Bootstrap treeview core CSS 
+<link href="../css/bootstrap-treeview.min.css" rel="stylesheet">-->
 
 <!-- Bootstrap treeview core CSS -->
 <link href="../css/algo.css" rel="stylesheet">
@@ -148,41 +154,57 @@
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script>
+		//var minified = ''; // min.
 		window.jQuery
 				|| document
-						.write('<script src="../js/jquery.min.js"><\/script>')
+						.write('<script src="../js/jquery.'+minified+'js"><\/script>');
+		document
+				.write('<script src="../js/bootstrap.'+minified+'js"><\/script>');
+		document
+				.write('<script src="../js/bootstrap-treeview.'+minified+'js"><\/script>');
+		document
+				.write('<script src="../js/jquery.jplayer.'+minified+'js"><\/script>');
 	</script>
+	<!--
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/bootstrap-treeview.min.js"></script>
 	<script src="../js/jquery.jplayer.min.js"></script>
+	-->
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script src="test.nodejs.js"></script>
-	
-<script type="text/javascript">
-    $(document).ready(function(){
-      $("#jquery_jplayer_1").jPlayer({
-        ready: function () {
-          $(this).jPlayer("setMedia", {
-            title: "Big Buck Bunny Trailer",
-            m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
-            ogv: "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
-            poster: "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
-          });
-        },
-        cssSelectorAncestor: "#jp_container_1",
-        swfPath: "/js",
-        supplied: "m4v, ogv",
-        useStateClassSkin: true,
-        autoBlur: false,
-        smoothPlayBar: true,
-        keyEnabled: true,
-        remainingDuration: true,
-        toggleDuration: true
-      });
-    });
-  </script>
-  	
+
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+							$("#jquery_jplayer_1")
+									.jPlayer(
+											{
+												ready : function() {
+													$(this)
+															.jPlayer(
+																	"setMedia",
+																	{
+																		title : "Big Buck Bunny Trailer",
+																		m4v : "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+																		ogv : "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
+																		poster : "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
+																	});
+												},
+												cssSelectorAncestor : "#jp_container_1",
+												swfPath : "/js",
+												supplied : "m4v, ogv",
+												useStateClassSkin : true,
+												autoBlur : false,
+												smoothPlayBar : true,
+												keyEnabled : true,
+												remainingDuration : true,
+												toggleDuration : true
+											});
+						});
+	</script>
+
 </body>
 </html>
 

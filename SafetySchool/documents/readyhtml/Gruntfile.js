@@ -8,10 +8,12 @@ module.exports = function(grunt) {
 		scripts : 'js', /* папка для готовых скриптов js */
 		swfs : 'js', /* папка для готовых скриптов js */
 		src : 'src', /* папка с исходными кодами js, less , etc. */
+		minified : '', /* минимизированные ли версии файлов брать 'min.' */
+		wwwroot : 'C:/openserver/domains/sfty.local',
 		bower_path : 'bower_components' /*
-										 * папка где хранятся библиотеки jquery,
-										 * bootstrap, SyntaxHighlighter, etc.
-										 */
+		 * папка где хранятся библиотеки jquery,
+		 * bootstrap, SyntaxHighlighter, etc.
+		 */
 	};
 
 	// Project configuration.
@@ -21,63 +23,87 @@ module.exports = function(grunt) {
 				pkg : grunt.file.readJSON('package.json'),
 				clean : {
 					skin : [ 'skin/**' ],
+					//wwwroot : [ '<%= globalConfig.wwwroot %>/**' ],
 					swfs : [ '<%= globalConfig.swfs %>/*' ],
 					js : [ '<%= globalConfig.scripts %>/*' ],
-					css : [ '<%= globalConfig.styles %>/*'],
-					fonts: [ '<%= globalConfig.fonts %>/*']
+					css : [ '<%= globalConfig.styles %>/*' ],
+					fonts : [ '<%= globalConfig.fonts %>/*' ]
 				},
 				copy : {
+					wwwroot : {
+						files : [ {
+							expand : true,
+							flatten : false,
+							//cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
+							src : '{js,css,fonts,skin}/**',
+							dest : '<%= globalConfig.wwwroot %>/'/*,
+														filter : 'isFile'*/
+						} ,{
+							expand : true,
+							flatten : false,
+							cwd : '<%= globalConfig.src %>/',
+							src : '**',
+							dest : '<%= globalConfig.wwwroot %>/p/'/*,
+														filter : 'isFile'*/
+						}
+						]
+
+					},
 					main : {
 						files : [
 								{
 									expand : true,
 									flatten : true,
-									src : '<%= globalConfig.bower_path %>/jPlayer/dist/add-on/*.min.js',
-									dest : '<%= globalConfig.scripts %>/',
-									filter : 'isFile'
-								},{
-									expand : true,
-									flatten : true,
-									src : '<%= globalConfig.bower_path %>/jPlayer/dist/jplayer/*.min.js',
-									dest : '<%= globalConfig.scripts %>/',
-									filter : 'isFile'
-								},{
-									expand : true,
-									flatten : false,
-									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
-									src : '**',
-									dest : 'skin/'/*,
-									filter : 'isFile'*/
-								},{
-									expand : true,
-									flatten : true,
-									src : '<%= globalConfig.bower_path %>/jPlayer/dist/jplayer/*.swf',
-									dest : '<%= globalConfig.swfs %>/',
-									filter : 'isFile'
-								},{
-									expand : true,
-									flatten : true,
-									src : '<%= globalConfig.bower_path %>/jquery/dist/jquery.min.js',
-									dest : '<%= globalConfig.scripts %>/',
-									filter : 'isFile'
-								}, /*
-									 * { expand : true, flatten : true, src : '<%=
-									 * globalConfig.bower_path
-									 * %>/html5shiv/dist/html5shiv.min.js', dest : '<%=
-									 * globalConfig.scripts %>/', filter :
-									 * 'isFile' },
-									 */
-								{
-									expand : true,
-									flatten : true,
-									src : '<%= globalConfig.bower_path %>/bootstrap/dist/js/bootstrap.min.js',
+									src : '<%= globalConfig.bower_path %>/jPlayer/dist/add-on/*.<%= globalConfig.minified %>js',
 									dest : '<%= globalConfig.scripts %>/',
 									filter : 'isFile'
 								},
 								{
 									expand : true,
 									flatten : true,
-									src : '<%= globalConfig.bower_path %>/bootstrap/dist/css/bootstrap.min.css',
+									src : '<%= globalConfig.bower_path %>/jPlayer/dist/jplayer/*.<%= globalConfig.minified %>js',
+									dest : '<%= globalConfig.scripts %>/',
+									filter : 'isFile'
+								},
+								{
+									expand : true,
+									flatten : false,
+									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
+									src : '**',
+									dest : 'skin/'/*,
+																		filter : 'isFile'*/
+								},
+								{
+									expand : true,
+									flatten : true,
+									src : '<%= globalConfig.bower_path %>/jPlayer/dist/jplayer/*.swf',
+									dest : '<%= globalConfig.swfs %>/',
+									filter : 'isFile'
+								},
+								{
+									expand : true,
+									flatten : true,
+									src : '<%= globalConfig.bower_path %>/jquery/dist/jquery.<%= globalConfig.minified %>js',
+									dest : '<%= globalConfig.scripts %>/',
+									filter : 'isFile'
+								}, /*
+								 * { expand : true, flatten : true, src : '<%=
+								 * globalConfig.bower_path
+								 * %>/html5shiv/dist/html5shiv.min.js', dest : '<%=
+								 * globalConfig.scripts %>/', filter :
+								 * 'isFile' },
+								 */
+								{
+									expand : true,
+									flatten : true,
+									src : '<%= globalConfig.bower_path %>/bootstrap/dist/js/bootstrap.<%= globalConfig.minified %>js',
+									dest : '<%= globalConfig.scripts %>/',
+									filter : 'isFile'
+								},
+								{
+									expand : true,
+									flatten : true,
+									src : '<%= globalConfig.bower_path %>/bootstrap/dist/css/bootstrap.<%= globalConfig.minified %>css',
 									dest : '<%= globalConfig.styles %>/',
 									filter : 'isFile'
 								},
@@ -91,21 +117,21 @@ module.exports = function(grunt) {
 								{
 									expand : true,
 									flatten : true,
-									src : '<%= globalConfig.bower_path %>/bootstrap-treeview/dist/*.min.js',
+									src : '<%= globalConfig.bower_path %>/bootstrap-treeview/public/js/*.js',
 									dest : '<%= globalConfig.scripts %>/',
 									filter : 'isFile'
 								},
 								{
 									expand : true,
 									flatten : true,
-									src : '<%= globalConfig.bower_path %>/bootstrap-treeview/dist/*.min.css',
+									src : '<%= globalConfig.bower_path %>/bootstrap-treeview/public/css/*.css',
 									dest : '<%= globalConfig.styles %>/',
 									filter : 'isFile'
 								},
 								{
 									expand : true,
 									flatten : true,
-									src : '<%= globalConfig.bower_path %>/font-awesome/css/font-awesome.min.css',
+									src : '<%= globalConfig.bower_path %>/font-awesome/css/font-awesome.<%= globalConfig.minified %>css',
 									dest : '<%= globalConfig.styles %>/',
 									filter : 'isFile'
 								},
@@ -116,12 +142,12 @@ module.exports = function(grunt) {
 									dest : '<%= globalConfig.fonts %>/',
 									filter : 'isFile'
 								} /*
-									 * , { expand : true, flatten : true, src : '<%=
-									 * globalConfig.bower_path
-									 * %>/respond/dest/respond.min.js', dest : '<%=
-									 * globalConfig.scripts %>/', filter :
-									 * 'isFile' }
-									 */
+						 * , { expand : true, flatten : true, src : '<%=
+						 * globalConfig.bower_path
+						 * %>/respond/dest/respond.min.js', dest : '<%=
+						 * globalConfig.scripts %>/', filter :
+						 * 'isFile' }
+						 */
 						]
 					}
 				},
@@ -187,8 +213,8 @@ module.exports = function(grunt) {
 						},
 						files : {
 							"css/algo.css" : "less/algo.less" // destination
-																// file and
-																// source file
+						// file and
+						// source file
 						}
 					}
 				},
@@ -212,7 +238,7 @@ module.exports = function(grunt) {
 	// Default task(s).
 	// grunt.registerTask('default', [ 'uglify','less', 'watch' ]);
 	// grunt.registerTask('default', [ 'uglify','less', 'bower_concat' ]);
-	grunt.registerTask('default', [ 'clean', 'uglify', 'less', 'copy' ]);
+	grunt.registerTask('default', [ 'clean', 'uglify', 'less', 'copy:main','copy:wwwroot' ]);
 
 	// 11
 
