@@ -10,6 +10,8 @@ module.exports = function(grunt) {
 		src : 'src', /* папка с исходными кодами js, less , etc. */
 		minified : '', /* минимизированные ли версии файлов брать 'min.' */
 		wwwroot : 'www.root',
+		externalServer : 'C:/OpenServer/domains/sfty.local', /* Абсолютный путь к корню тестового сервера */
+		phpApplicationPath : '../../application', /* Относительный путь к ПХП приложению */
 		bower_path : 'bower_components' /*
 		 * папка где хранятся библиотеки jquery,
 		 * bootstrap, SyntaxHighlighter, etc.
@@ -30,6 +32,25 @@ module.exports = function(grunt) {
 					fonts : [ '<%= globalConfig.fonts %>/*' ]
 				},
 				copy : {
+					wwwrootglobal : {
+						files : [ {
+							expand : true,
+							flatten : false,
+							cwd : '<%= globalConfig.wwwroot %>/',
+							src : '**/*',
+							dest : '<%= globalConfig.externalServer %>/'/*,
+														filter : 'isFile'*/
+						},{
+							expand : true,
+							flatten : false,
+							cwd : '<%= globalConfig.phpApplicationPath %>/',
+							src : '**',
+							dest : '<%= globalConfig.externalServer %>/p/'/*,
+														filter : 'isFile'*/
+						}
+						]
+
+					},
 					wwwroot : {
 						files : [ {
 							expand : true,
@@ -254,7 +275,7 @@ module.exports = function(grunt) {
 	// Default task(s).
 	// grunt.registerTask('default', [ 'uglify','less', 'watch' ]);
 	// grunt.registerTask('default', [ 'uglify','less', 'bower_concat' ]);
-	grunt.registerTask('default', [ 'clean', 'uglify', 'less', 'copy:main','copy:wwwroot' ]);
+	grunt.registerTask('default', [ 'clean', 'uglify', 'less', 'copy:main','copy:wwwroot','copy:wwwrootglobal' ]);
 
 	// 11
 
