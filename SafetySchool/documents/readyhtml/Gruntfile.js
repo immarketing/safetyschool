@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		swfs : 'js', /* папка для готовых скриптов js */
 		src : 'src', /* папка с исходными кодами js, less , etc. */
 		minified : '', /* минимизированные ли версии файлов брать 'min.' */
-		wwwroot : 'C:/openserver/domains/sfty.local',
+		wwwroot : 'www.root',
 		bower_path : 'bower_components' /*
 		 * папка где хранятся библиотеки jquery,
 		 * bootstrap, SyntaxHighlighter, etc.
@@ -22,8 +22,8 @@ module.exports = function(grunt) {
 				globalConfig : globalConfig,
 				pkg : grunt.file.readJSON('package.json'),
 				clean : {
-					skin : [ 'skin/**' ],
-					//wwwroot : [ '<%= globalConfig.wwwroot %>/**' ],
+					skin : [ 'skin/**/*' ],
+					wwwroot : [ '<%= globalConfig.wwwroot %>/**' ],
 					swfs : [ '<%= globalConfig.swfs %>/*' ],
 					js : [ '<%= globalConfig.scripts %>/*' ],
 					css : [ '<%= globalConfig.styles %>/*' ],
@@ -70,6 +70,22 @@ module.exports = function(grunt) {
 									flatten : false,
 									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
 									src : '**',
+									dest : 'skin/'/*,
+																		filter : 'isFile'*/
+								},
+								{
+									expand : true,
+									flatten : false,
+									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/pink.flag/css/',
+									src : '**',
+									dest : 'skin/pink.flag/'/*,
+																		filter : 'isFile'*/
+								},
+								{
+									expand : true,
+									flatten : false,
+									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/pink.flag/',
+									src : '{image,mustache}/**',
 									dest : 'skin/'/*,
 																		filter : 'isFile'*/
 								},
