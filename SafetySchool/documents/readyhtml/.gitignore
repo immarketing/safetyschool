@@ -12,3 +12,5 @@
 /swf/
 /www.root/
 /www.root/**/*
+/composer.lock
+/vendor/
