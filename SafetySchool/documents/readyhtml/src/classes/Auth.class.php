@@ -64,6 +64,11 @@ class User
 
     public function authorize($username, $password, $remember=false)
     {
+    	if ($username === '111' && $password = '111') {
+    		return true;
+    	} else {
+    		return false;
+    	}
         $query = "select id, username from users where
             username = :username and password = :password limit 1";
         $sth = $this->db->prepare($query);
@@ -156,7 +161,8 @@ class User
 
     public function connectdb($db_name, $db_user, $db_pass, $db_host = "localhost")
     {
-        try {
+    	return $this;
+    	try {
             $this->db = new \pdo("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
         } catch (\pdoexception $e) {
             echo "database error: " . $e->getmessage();
