@@ -1,6 +1,8 @@
 /bower_components/**/*
 /node_modules/**/*
 /build/
+/build/**/*
+/build/*
 /css/
 /fonts/
 /js/
