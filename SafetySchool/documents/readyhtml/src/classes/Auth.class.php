@@ -29,7 +29,7 @@ class User
 
     public static function isAuthorized()
     {
-    	echo 'isAuthorized '.$_SESSION.'<br>';
+        //echo 'isAuthorized '.$_SESSION.'<br>';
         if (!empty($_SESSION["user_id"])) {
             return (bool) $_SESSION["user_id"];
         }
