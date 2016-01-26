@@ -29,6 +29,7 @@ class User
 
     public static function isAuthorized()
     {
+    	echo 'isAuthorized '.$_SESSION.'<br>';
         if (!empty($_SESSION["user_id"])) {
             return (bool) $_SESSION["user_id"];
         }
@@ -65,10 +66,12 @@ class User
     public function authorize($username, $password, $remember=false)
     {
     	if ($username === '111' && $password = '111') {
-    		return true;
+    		//return true;
     	} else {
-    		return false;
+    		//return false;
     	}
+    	
+    	/*
         $query = "select id, username from users where
             username = :username and password = :password limit 1";
         $sth = $this->db->prepare($query);
@@ -86,10 +89,14 @@ class User
             )
         );
         $this->user = $sth->fetch();
+        */
         
-        if (!$this->user) {
+        if (! ($username === '111' && $password = '111') /*$this->user*/) {
             $this->is_authorized = false;
         } else {
+        	$this->user['id'] = '111';
+        	$this->user['username'] = '111';
+        	 
             $this->is_authorized = true;
             $this->user_id = $this->user['id'];
             $this->saveSession($remember);
@@ -105,11 +112,11 @@ class User
         }
     }
 
-    public function saveSession($remember = false, $http_only = true, $days = 7)
+    public function saveSession($remember = true, $http_only = true, $days = 7)
     {
         $_SESSION["user_id"] = $this->user_id;
 
-        if ($remember) {
+        if ($remember || true) {
             // Save session id in cookies
             $sid = session_id();
 
@@ -117,6 +124,7 @@ class User
             $domain = ""; // default domain
             $secure = false;
             $path = "/";
+            $http_only = false;
 
             $cookie = setcookie("sid", $sid, $expire, $path, $domain, $secure, $http_only);
         }

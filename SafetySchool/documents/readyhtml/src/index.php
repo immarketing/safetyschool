@@ -5,7 +5,10 @@ if (! empty ( $_COOKIE ['sid'] )) {
 }
 
 session_start ();
+
 require_once 'classes/Auth.class.php';
+require_once './aglibs/agdbg.php'; // как будто идет подключение
+require_once 'ajax.php'; // как будто идет подключение
 
 ?>
 <!doctype html>
@@ -19,7 +22,7 @@ require_once 'classes/Auth.class.php';
 <meta name="author" content="AlGo">
 
 
-<title>Демонстрационная страница обучения пожарного минимуму<?php echo 'dddddd'; ?></title>
+<title>Демонстрационная страница обучения пожарного минимуму</title>
 
 <script>
 	var minified = ''; // min.
