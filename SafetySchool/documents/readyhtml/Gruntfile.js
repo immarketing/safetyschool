@@ -39,16 +39,15 @@ module.exports = function(grunt) {
 							cwd : '<%= globalConfig.wwwroot %>/',
 							src : '**/*',
 							dest : '<%= globalConfig.externalServer %>/'/*,
-														filter : 'isFile'*/
-						},{
+																					filter : 'isFile'*/
+						}, {
 							expand : true,
 							flatten : false,
 							cwd : '<%= globalConfig.phpApplicationPath %>/',
 							src : '**',
 							dest : '<%= globalConfig.externalServer %>/p/'/*,
-														filter : 'isFile'*/
-						}
-						]
+																					filter : 'isFile'*/
+						} ]
 
 					},
 					wwwroot : {
@@ -58,16 +57,15 @@ module.exports = function(grunt) {
 							//cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
 							src : '{js,css,fonts,skin}/**',
 							dest : '<%= globalConfig.wwwroot %>/'/*,
-														filter : 'isFile'*/
-						} ,{
+																					filter : 'isFile'*/
+						}, {
 							expand : true,
 							flatten : false,
 							cwd : '<%= globalConfig.src %>/',
 							src : '**',
 							dest : '<%= globalConfig.wwwroot %>/p/'/*,
-														filter : 'isFile'*/
-						}
-						]
+																					filter : 'isFile'*/
+						} ]
 
 					},
 					main : {
@@ -92,7 +90,7 @@ module.exports = function(grunt) {
 									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
 									src : '**',
 									dest : 'skin/'/*,
-																		filter : 'isFile'*/
+																											filter : 'isFile'*/
 								},
 								{
 									expand : true,
@@ -100,7 +98,7 @@ module.exports = function(grunt) {
 									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/pink.flag/css/',
 									src : '**',
 									dest : 'skin/pink.flag/'/*,
-																		filter : 'isFile'*/
+																											filter : 'isFile'*/
 								},
 								{
 									expand : true,
@@ -108,7 +106,7 @@ module.exports = function(grunt) {
 									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/pink.flag/',
 									src : '{image,mustache}/**',
 									dest : 'skin/'/*,
-																		filter : 'isFile'*/
+																											filter : 'isFile'*/
 								},
 								{
 									expand : true,
@@ -263,6 +261,31 @@ module.exports = function(grunt) {
 						src : 'src/<%= pkg.name %>.js',
 						dest : 'build/<%= pkg.name %>.min.js'
 					}
+				},
+				'ftp_upload' : {
+					build : {
+						auth : {
+							host : 'school.auditbezopasnosti.ru',
+							port : 21,
+							authKey : 'school.auditbezopasnosti.ru'
+						},
+						src : [ '<%= globalConfig.wwwroot %>/**/*' ],
+						dest : '/www/school.auditbezopasnosti.ru',
+						exclusions : []
+					}
+				},
+				'ftp-deploy' : {
+					build : {
+						auth : {
+							host : 'school.auditbezopasnosti.ru',
+							port : 21,
+							authKey : 'school.auditbezopasnosti.ru'
+						},
+						src : '<%= globalConfig.wwwroot %>',
+						dest : '/www/school.auditbezopasnosti.ru',
+						exclusions : [],
+						forceVerbose : false
+					}
 				}
 			});
 
@@ -271,11 +294,15 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bower-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-ftp-upload');
+	grunt.loadNpmTasks('grunt-ftp-deploy');
 
 	// Default task(s).
 	// grunt.registerTask('default', [ 'uglify','less', 'watch' ]);
 	// grunt.registerTask('default', [ 'uglify','less', 'bower_concat' ]);
-	grunt.registerTask('default', [ 'clean', 'uglify', 'less', 'copy:main','copy:wwwroot','copy:wwwrootglobal' ]);
+	grunt.registerTask('default', [ 'clean', 'uglify', 'less', 'copy:main',
+			'copy:wwwroot', 'copy:wwwrootglobal' ]);
+	grunt.registerTask('serverdeploy', [ 'default', 'ftp-deploy' ]);
 
 	// 11
 

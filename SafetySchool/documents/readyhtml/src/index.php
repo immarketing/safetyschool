@@ -197,36 +197,6 @@ require_once 'ajax.php'; // как будто идет подключение
 	<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script src="test.nodejs.js"></script>
 
-	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-							$("#jquery_jplayer_1")
-									.jPlayer(
-											{
-												ready : function() {
-													$(this)
-															.jPlayer(
-																	"setMedia",
-																	{
-																		title : "Big Buck Bunny Trailer",
-																		m4v : "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
-																		ogv : "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
-																		poster : "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
-																	});
-												},
-												cssSelectorAncestor : "#jp_container_1",
-												swfPath : "/js",
-												supplied : "m4v, ogv",
-												useStateClassSkin : true,
-												autoBlur : false,
-												smoothPlayBar : true,
-												keyEnabled : true,
-												remainingDuration : true,
-												toggleDuration : true
-											});
-						});
-	</script>
 	<script src="./js/ajax-form.js"></script>
 </body>
 </html>
