@@ -247,7 +247,10 @@ module.exports = function(grunt) {
 							optimization : 2
 						},
 						files : {
-							"css/algo.css" : "less/algo.less" // destination
+							"css/algo.css" : "less/algo.less",
+							"css/main.css" : "less/main.less"
+								
+								// destination
 						// file and
 						// source file
 						}
