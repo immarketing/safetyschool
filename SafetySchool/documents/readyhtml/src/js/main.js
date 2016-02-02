@@ -16,14 +16,7 @@ $(document).ready(function() {
 		}
 		$('#navbar .active').removeClass('active');
 		$(this).addClass('active');
-		return false; // выключаем стандартное действие
+		//return false; // выключаем стандартное действие
 	});
 });
 
-$(document).ready(function() {
-	$("#navbar li").click(function(evnt) {
-		// $(this).slideUp();
-		$(this).text('aaa');
-		//alert(evnt);
-	});
-});
