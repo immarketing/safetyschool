@@ -1,5 +1,5 @@
-//@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Open+Sans+Condensed:300&subset=latin,cyrillic);
 @import (inline) "fonts.css";
+@agBigIconHeight : 10Em;
 body {
 	font-family: 'Open Sans', sans-serif;
 	padding-top: 70px;
@@ -13,18 +13,23 @@ body {
 
 		section#worksteps {
 			.glyphicon {
-				font-size: 2.8em;
+				font-size: @agBigIconHeight;
 				float: left;
 				line-height: 1em;
 				padding-right: 2px;
 			}
-			
+
+			.agbigicon {
+				display: block;
+				margin: auto;
+				width: @agBigIconHeight;
+			}
+
 			.fa {
-				font-size: 2.8em;
+				font-size: @agBigIconHeight;
 				float: left;
 				line-height: 1em;
 				padding-right: 2px;
-				
 			}
 		}
 	}
