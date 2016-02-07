@@ -16,3 +16,4 @@
 /www.root/**/*
 /composer.lock
 /vendor/
+/node_modules/
