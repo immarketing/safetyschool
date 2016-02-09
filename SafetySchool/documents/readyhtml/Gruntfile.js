@@ -10,12 +10,20 @@ module.exports = function(grunt) {
 		src : 'src', /* папка с исходными кодами js, less , etc. */
 		minified : '', /* минимизированные ли версии файлов брать 'min.' */
 		wwwroot : 'www.root',
-		externalServer : 'C:/OpenServer/domains/sfty.local', /* Абсолютный путь к корню тестового сервера */
-		phpApplicationPath : '../../application', /* Относительный путь к ПХП приложению */
+		externalServer : 'C:/OpenServer/domains/sfty.local', /*
+																 * Абсолютный
+																 * путь к корню
+																 * тестового
+																 * сервера
+																 */
+		phpApplicationPath : '../../application', /*
+													 * Относительный путь к ПХП
+													 * приложению
+													 */
 		bower_path : 'bower_components' /*
-		 * папка где хранятся библиотеки jquery,
-		 * bootstrap, SyntaxHighlighter, etc.
-		 */
+										 * папка где хранятся библиотеки jquery,
+										 * bootstrap, SyntaxHighlighter, etc.
+										 */
 	};
 
 	// Project configuration.
@@ -38,15 +46,21 @@ module.exports = function(grunt) {
 							flatten : false,
 							cwd : '<%= globalConfig.wwwroot %>/',
 							src : '**/*',
-							dest : '<%= globalConfig.externalServer %>/'/*,
-																					filter : 'isFile'*/
+							dest : '<%= globalConfig.externalServer %>/'/*
+																		 * ,
+																		 * filter :
+																		 * 'isFile'
+																		 */
 						}, {
 							expand : true,
 							flatten : false,
 							cwd : '<%= globalConfig.phpApplicationPath %>/',
 							src : '**',
-							dest : '<%= globalConfig.externalServer %>/p/'/*,
-																					filter : 'isFile'*/
+							dest : '<%= globalConfig.externalServer %>/p/'/*
+																			 * ,
+																			 * filter :
+																			 * 'isFile'
+																			 */
 						} ]
 
 					},
@@ -54,22 +68,34 @@ module.exports = function(grunt) {
 						files : [ {
 							expand : true,
 							flatten : false,
-							//cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
+							// cwd : '<%= globalConfig.bower_path
+							// %>/jPlayer/dist/skin/',
 							src : '{js,css,fonts,skin}/**',
-							dest : '<%= globalConfig.wwwroot %>/'/*,
-																					filter : 'isFile'*/
+							dest : '<%= globalConfig.wwwroot %>/'/*
+																	 * , filter :
+																	 * 'isFile'
+																	 */
 						}, {
 							expand : true,
 							flatten : false,
 							cwd : '<%= globalConfig.src %>/',
 							src : '**',
-							dest : '<%= globalConfig.wwwroot %>/p/'/*,
-																					filter : 'isFile'*/
+							dest : '<%= globalConfig.wwwroot %>/p/'/*
+																	 * , filter :
+																	 * 'isFile'
+																	 */
 						} ]
 
 					},
 					main : {
 						files : [
+								{
+									expand : true,
+									flatten : true,
+									src : '<%= globalConfig.bower_path %>/jQuery-viewport-checker/src/*.js',
+									dest : '<%= globalConfig.scripts %>/',
+									filter : 'isFile'
+								},
 								{
 									expand : true,
 									flatten : true,
@@ -89,24 +115,28 @@ module.exports = function(grunt) {
 									flatten : false,
 									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/',
 									src : '**',
-									dest : 'skin/'/*,
-																											filter : 'isFile'*/
+									dest : 'skin/'/*
+													 * , filter : 'isFile'
+													 */
 								},
 								{
 									expand : true,
 									flatten : false,
 									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/pink.flag/css/',
 									src : '**',
-									dest : 'skin/pink.flag/'/*,
-																											filter : 'isFile'*/
+									dest : 'skin/pink.flag/'/*
+															 * , filter :
+															 * 'isFile'
+															 */
 								},
 								{
 									expand : true,
 									flatten : false,
 									cwd : '<%= globalConfig.bower_path %>/jPlayer/dist/skin/pink.flag/',
 									src : '{image,mustache}/**',
-									dest : 'skin/'/*,
-																											filter : 'isFile'*/
+									dest : 'skin/'/*
+													 * , filter : 'isFile'
+													 */
 								},
 								{
 									expand : true,
@@ -122,12 +152,12 @@ module.exports = function(grunt) {
 									dest : '<%= globalConfig.scripts %>/',
 									filter : 'isFile'
 								}, /*
-								 * { expand : true, flatten : true, src : '<%=
-								 * globalConfig.bower_path
-								 * %>/html5shiv/dist/html5shiv.min.js', dest : '<%=
-								 * globalConfig.scripts %>/', filter :
-								 * 'isFile' },
-								 */
+									 * { expand : true, flatten : true, src : '<%=
+									 * globalConfig.bower_path
+									 * %>/html5shiv/dist/html5shiv.min.js', dest : '<%=
+									 * globalConfig.scripts %>/', filter :
+									 * 'isFile' },
+									 */
 								{
 									expand : true,
 									flatten : true,
@@ -177,12 +207,12 @@ module.exports = function(grunt) {
 									dest : '<%= globalConfig.fonts %>/',
 									filter : 'isFile'
 								} /*
-						 * , { expand : true, flatten : true, src : '<%=
-						 * globalConfig.bower_path
-						 * %>/respond/dest/respond.min.js', dest : '<%=
-						 * globalConfig.scripts %>/', filter :
-						 * 'isFile' }
-						 */
+									 * , { expand : true, flatten : true, src : '<%=
+									 * globalConfig.bower_path
+									 * %>/respond/dest/respond.min.js', dest : '<%=
+									 * globalConfig.scripts %>/', filter :
+									 * 'isFile' }
+									 */
 						]
 					}
 				},
@@ -198,15 +228,13 @@ module.exports = function(grunt) {
 							dest : 'build/' /* , filter: 'isFile' */
 						}
 						/*
-						 * ,
-						 *  // includes files within path and its
+						 * , // includes files within path and its
 						 * sub-directories {expand: true, src: ['path/**'],
-						 * dest: 'dest/'},
-						 *  // makes all src relative to cwd {expand: true, cwd:
-						 * 'path/', src: ['**'], dest: 'dest/'},
-						 *  // flattens results to a single level {expand: true,
-						 * flatten: true, src: ['path/**'], dest: 'dest/',
-						 * filter: 'isFile'},
+						 * dest: 'dest/'}, // makes all src relative to cwd
+						 * {expand: true, cwd: 'path/', src: ['**'], dest:
+						 * 'dest/'}, // flattens results to a single level
+						 * {expand: true, flatten: true, src: ['path/**'], dest:
+						 * 'dest/', filter: 'isFile'},
 						 */
 						],
 					},
@@ -249,8 +277,8 @@ module.exports = function(grunt) {
 						files : {
 							"css/algo.css" : "less/algo.less",
 							"css/main.css" : "less/main.less"
-								
-								// destination
+
+						// destination
 						// file and
 						// source file
 						}
