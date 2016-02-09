@@ -18,5 +18,9 @@ $(document).ready(function() {
 		$(this).addClass('active');
 		//return false; // выключаем стандартное действие
 	});
+	jQuery('.container section').addClass("aghidden").viewportChecker({
+        classToAdd: 'agvisible animated fadeIn',
+        offset: 100
+       });
 });
 
